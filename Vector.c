@@ -99,17 +99,19 @@ int main () {
   #define SPACE_SIZE 1
   Vector *v = init(SPACE_SIZE);
 for (int i = 0; i < MAX_OP; i++) {
-  int op = rand() % 2;
+  int op = rand() % 4;
   int index = rand() % (v->length + 3) - 1;
 
   switch (op)
   {
-    case 0: {
+    case 0:
+    case 1:
+    case 2: {
       int val = rand() % 100;
       printf("insert %d at %d to Vector = %d\n",val, index, insert(v, index, val));
       break;
     }
-    case 1: {
+    case 3: {
       printf("erase item at %d from Vector = %d\n", index, erase(v, index));
       break;
     }
