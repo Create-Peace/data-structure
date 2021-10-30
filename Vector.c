@@ -43,7 +43,6 @@ int expand (Vector *v) {
 
 int insert (Vector *v, int index, int val) {
   if (v == NULL) return 0;
-  // if (v->length == v->size - 1) return 0;
   if (v->length == v->size) {
     if(!expand(v)) return 0;
     printf(GREEN("success to expand! the size = %d\n"), v->size);
@@ -101,7 +100,7 @@ int main () {
   Vector *v = init(SPACE_SIZE);
 for (int i = 0; i < MAX_OP; i++) {
   int op = rand() % 2;
-  int index = rand() % (v->length + 1);
+  int index = rand() % (v->length + 3) - 1;
 
   switch (op)
   {
