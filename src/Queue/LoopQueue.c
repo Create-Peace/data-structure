@@ -29,9 +29,35 @@ int front (LoopQueue *q) {
   return q->data[q->head];
 }
 
+int expand (LoopQueue *q) {
+  int extSize = q->length;
+  int *tmp;
+
+  while (extSize) {
+    tmp = (int *)malloc(sizeof(int) * (extSize + q->length));
+    if (tmp != NULL) break;
+    extSize >>= 1;
+  }
+
+  if (tmp == NULL) return 0;
+
+  for (int i = q->head, j = 0; j < q->count; j++)
+  {
+    tmp[j] = q->data[(i + j) % q->length];
+  }
+
+  free(q->data);
+  q->data = tmp;
+  q->head = 0, q->tail = q->count;
+  q->length += extSize;
+  return 1;
+}
+
 int push (LoopQueue *q, int val) {
   if (q == NULL) return 0;
-  if (q->count == q->length) return 0;
+  if (q->count == q->length) {
+    if (!expand(q)) return 0;
+  }
   q->data[q->tail++] = val;
   if (q->tail == q->length) q->tail = 0;
   q->count += 1;
