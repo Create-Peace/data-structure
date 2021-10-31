@@ -89,6 +89,18 @@ void clearList(List *l) {
     return ;
 } */
 
+void reverse (List *l) {
+  if (l == NULL) return;
+  Node *p = l->head.next, *q;
+  l->head.next = NULL;
+  while(p != NULL) {
+    q = p->next;
+    p->next = l->head.next;
+    l->head.next = p;
+    p = q;
+  }
+}
+
 void output(List *l) {
   if (l == NULL) return;
   printf("list(%d): ", l->length);
@@ -117,10 +129,12 @@ int main()
     {
     case 0:
     case 1:
-    case 2:
       printf("insert %d at %d to list = %d\n", val, index, insert(l, index, val));
       break;
-    
+    case 2:
+      printf("reverse list");
+      reverse(l);
+      break;
     default:
       printf("erase a item at %d from list = %d\n", index, erase(l, index));
       break;
