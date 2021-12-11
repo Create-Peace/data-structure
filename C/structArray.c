@@ -13,9 +13,9 @@ void outputStuList(STU stu[5]) {
 
   for (int i = 0; i < 5; i++)
   {
-    printf("stuMax %s \n", stuMax.name);
-    if (strcmp(stuMax.num, stu[i].num)) {
-      printf("stu[i] %s \n", stu[i].name);
+    printf("stu[i] %s \n", stu[i].name);
+    printf("compare: %d \n", strcmp(stuMax.num, stu[i].num));
+    if (strcmp(stuMax.num, stu[i].num) < 0) {
       stuMax = stu[i];
     }
   }
@@ -46,12 +46,6 @@ int main(int argc, char const *argv[])
     },
     {
       "小北",
-      13,
-      'F',
-      "Z1207022"
-    },
-    {
-      "小七",
       13,
       'F',
       "Z1207022"
