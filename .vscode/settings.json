@@ -5,6 +5,7 @@
     "*.wxs": "javascript",
     "sstream": "c",
     "Vector.C": "cpp",
-    "matrix.h": "c"
+    "matrix.h": "c",
+    "iostream": "cpp"
   }
 }
