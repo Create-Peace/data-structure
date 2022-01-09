@@ -28,10 +28,10 @@ void findAndRemoveK(person *head, int k, int m)
 
   person *tail = head;
   // 找到链表第一个结点的上一个结点，为删除操作做准备
-  while (tail->next != head)
-  {
-    tail = tail->next;
-  }
+  // while (tail->next != head)
+  // {
+  //   tail = tail->next;
+  // }
   person *p = head;
   // 找到编号为k的人
   while (p->number != k)
@@ -70,5 +70,6 @@ int main()
   int m;
   scanf("%d", &m);
   findAndRemoveK(head, k, m);
+  printf("%d \n", head->number);
   return 0;
 }
