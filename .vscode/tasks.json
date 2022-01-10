@@ -20,6 +20,12 @@
 			],
 			"group": "build",
 			"detail": "compiler: /usr/bin/gcc"
+		},
+		{
+			"label": "Open Terminal",
+			"type": "shell",
+			"command": "osascript -e 'tell application \"Terminal\"\ndo script \"echo hello\"\nend tell'",
+			"problemMatcher": []
 		}
 	]
 }
