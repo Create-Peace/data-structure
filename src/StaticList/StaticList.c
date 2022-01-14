@@ -94,8 +94,14 @@ void insertArr(component * array, int body, int add, int num) {
     array[tempBody].cur = insert;//直接前驱结点的游标等于新插入结点所在数组中的下标
 }
 
+//备用链表回收空间的函数，其中array为存储数据的数组，k表示未使用节点所在数组的下标
+void freeArr(component * array, int k) {
+    array[k].cur = array[0].cur;
+    array[0].cur = k;
+}
+
 //删除结点函数，num表示被删除结点中数据域存放的数据，函数返回新数据链表的表头位置
-int deletArr(component * array, int body, int num) {
+int deleteNode(component * array, int body, int num) {
     int tempBody = body;
     int del = 0;
     int newbody = 0;
@@ -105,7 +111,7 @@ int deletArr(component * array, int body, int num) {
         //当tempBody为0时，表示链表遍历结束，说明链表中没有存储该数据的结点
         if (tempBody == 0) {
             printf("链表中没有此数据");
-            return;
+            return 0;
         }
     }
     //运行到此，证明有该结点
@@ -129,12 +135,6 @@ int deletArr(component * array, int body, int num) {
         freeArr(array, del);
         return body;
     }  
-}
-
-//备用链表回收空间的函数，其中array为存储数据的数组，k表示未使用节点所在数组的下标
-void freeArr(component * array, int k) {
-    array[k].cur = array[0].cur;
-    array[0].cur = k;
 }
 
 

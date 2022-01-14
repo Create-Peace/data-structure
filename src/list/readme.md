@@ -1,5 +1,5 @@
 
-### 重点记忆：
+### 链表：
 
 ```C++
 int insert (List *l, int index, int val) {
