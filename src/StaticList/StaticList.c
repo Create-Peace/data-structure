@@ -10,7 +10,7 @@ typedef struct
 /*
 备用链表
 */
-void reverseArray(component *array) {
+void initBackArr(component *array) {
   for (int i = 0; i < MAX_SIZE; i++)
   {
     array[i].cur = i + 1;
@@ -27,7 +27,7 @@ int mallocArr (component *array) {
   int i = array[0].cur;
   printf("mallocArr: %d\n", i);
   if (array[0].cur) {
-    array[0].cur = array[i].cur;
+    array[0].cur = array[i].cur; // 头节点的游标指向占用的空间的下一个未占用的游标
   } 
   return i;
 }
@@ -37,7 +37,7 @@ int initArr(component *array) {
 
   int i = 0;
 
-  reverseArray(array);
+  initBackArr(array);
 
   body = mallocArr(array);
 
