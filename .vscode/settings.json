@@ -6,6 +6,8 @@
     "sstream": "c",
     "Vector.C": "cpp",
     "matrix.h": "c",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "string": "cpp",
+    "iosfwd": "cpp"
   }
 }
