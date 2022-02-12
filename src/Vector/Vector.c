@@ -34,10 +34,6 @@ int expand (Vector *v) {
   v->data = p;
   v->size += ext_size;
   return 1;
-
-  v->data = (int *)realloc(v->data, sizeof(int) * (v->size * 2));
-  v->size <<= 2;
-  return 1;
 }
 
 
