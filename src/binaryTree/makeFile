@@ -1,9 +1,10 @@
-main : testBinaryTree.o binaryTree.o
-	g++ -o main testBinaryTree.o binaryTree.o 
+
+testBinaryTree: testBinaryTree.o binaryTree.o
+	g++ -o testBinaryTree testBinaryTree.o binaryTree.o 
 #注意前面必须是tab，不能是空格
-main.o : testBinaryTree.cpp binaryTree.h
-    g++ -g -c testBinaryTree.cpp
-binaryTree.o : binaryTree.h binaryTree.cpp
-    g++ -g -c binaryTree.cpp
-clean :
-    rm main.o binaryTree.o main
+testBinaryTree.o: testBinaryTree.cpp binaryTree.h
+	g++ -g -c testBinaryTree.cpp
+binaryTree.o: binaryTree.cpp
+	g++ -c binaryTree.cpp
+clean:
+	rm testBinaryTree.o binaryTree.o testBinaryTree
